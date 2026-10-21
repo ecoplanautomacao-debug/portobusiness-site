@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Assinatura recebida | Porto Business</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .thanks-page{max-width:700px;margin:56px auto 80px;padding:0 16px}
+    .thanks-panel{background:#fff;border-radius:26px;padding:clamp(22px,5vw,48px);box-shadow:0 16px 45px #0d33451c}
+    .thanks-panel h1{font:800 clamp(1.9rem,5vw,2.6rem) Manrope,sans-serif;letter-spacing:-.04em;margin:.2em 0 .4em}
+    .thanks-panel ol{padding-left:22px;display:grid;gap:8px}
+    .thanks-order{background:#f2f8fa;border-radius:14px;padding:12px 16px;font-weight:700}
+  </style>
+</head>
+<body>
+  <div class="announcement">PORTO BUSINESS • ENDEREÇO FISCAL EM PORTO SEGURO</div>
+  <main class="thanks-page">
+    <section class="thanks-panel">
+      <span class="eyebrow">PLANO ESSENCIAL</span>
+      <h1>Obrigado! Recebemos sua assinatura.</h1>
+      <p class="thanks-order" id="order" hidden></p>
+      <p>Assim que o Mercado Pago confirmar o pagamento, você recebe no e-mail cadastrado:</p>
+      <ol>
+        <li>o contrato de prestação de serviços em PDF;</li>
+        <li>o endereço completo do escritório virtual e o número de inscrição do IPTU, para usar na abertura ou alteração da empresa;</li>
+        <li>os próximos passos para a consulta de viabilidade.</li>
+      </ol>
+      <p>Pagamentos por cartão costumam ser confirmados em poucos minutos. Se o e-mail não chegar, confira a caixa de spam ou fale com a gente.</p>
+      <a class="btn btn-primary" href="index.html">Voltar ao site ↗</a>
+    </section>
+  </main>
+  <script>
+    (function () {
+      var pedido = '';
+      try { pedido = new URLSearchParams(location.search).get('pedido') || sessionStorage.getItem('pb_pedido') || ''; } catch (e) {}
+      pedido = String(pedido).replace(/[^A-Za-z0-9-]/g, '').slice(0, 40);
+      if (pedido) {
+        var el = document.getElementById('order');
+        el.textContent = 'Nº do pedido: ' + pedido;
+        el.hidden = false;
+      }
+    })();
+  </script>
+</body>
+</html>

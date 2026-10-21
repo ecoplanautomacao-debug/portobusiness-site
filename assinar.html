@@ -1,0 +1,112 @@
+﻿<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Assinar Plano Essencial | Porto Business</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .checkout-page{max-width:780px;margin:48px auto 80px;padding:0 16px}
+    .checkout-panel{background:#fff;border-radius:26px;padding:clamp(22px,5vw,48px);box-shadow:0 16px 45px #0d33451c}
+    .checkout-panel h1{font:800 clamp(2rem,5vw,3rem) Manrope,sans-serif;letter-spacing:-.045em;margin:.2em 0}
+    .checkout-price{font-weight:800;font-size:2.5rem;color:#0d5a6d}
+    .checkout-price small{font-size:1.1rem;color:#64747c}
+    .checkout-eyebrow{font-size:.75rem;font-weight:800;color:#0b5a70;letter-spacing:.14em}
+    .checkout-summary{display:grid;gap:8px;margin:18px 0 6px;padding:0;list-style:none}
+    .checkout-summary li{padding-left:26px;position:relative}
+    .checkout-summary li::before{content:"✓";position:absolute;left:0;color:#0d5a6d;font-weight:800}
+    .checkout-form{padding:0;background:transparent;margin-top:26px}
+    .checkout-form fieldset{border:1px solid #dbe6ea;border-radius:18px;padding:6px 18px 18px;margin:0 0 18px}
+    .checkout-form legend{font-weight:800;padding:0 8px;font-family:Manrope,sans-serif}
+    .person-switch{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:12px}
+    .person-switch label{margin:0!important;display:flex!important;gap:10px;align-items:flex-start;border:1px solid #dbe6ea;border-radius:14px;padding:12px;cursor:pointer;font-weight:600}
+    .person-switch input{width:18px;height:18px;min-height:auto;margin-top:2px}
+    .person-switch small{display:block;font-weight:500;color:#64747c}
+    .form-row-3{display:grid;grid-template-columns:2fr 1fr 1fr;gap:14px}
+    .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+    .checkout-help{background:#f2f8fa;border-radius:18px;padding:15px 18px;margin-top:18px}
+    .checkout-warning{color:#6b4c1b;font-size:.95rem}
+    .form-error{color:#9b2c2c;font-weight:700}
+    .form-submit[disabled]{opacity:.6;cursor:wait}
+    @media (max-width:640px){.person-switch,.form-row-3{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="announcement">PORTO BUSINESS • ENDEREÇO FISCAL EM PORTO SEGURO</div>
+  <main class="checkout-page">
+    <a class="text-link dark-link" href="index.html">← Voltar ao Porto Business</a>
+    <section class="checkout-panel" aria-labelledby="checkout-title">
+      <span class="checkout-eyebrow">ASSINATURA DO PLANO ESSENCIAL</span>
+      <h1 id="checkout-title">Plano Essencial</h1>
+      <div class="checkout-price">R$ 39,90 <small>/mês</small></div>
+      <ul class="checkout-summary">
+        <li>Endereço fiscal e comercial em Porto Seguro, com nº de inscrição do IPTU para o registro da empresa</li>
+        <li>Recebimento e aviso de correspondências</li>
+        <li>Prazo mínimo de 6 meses; cancelamento a qualquer momento com 30 dias de aviso, sem multa</li>
+        <li>Contrato enviado ao seu e-mail, em PDF, logo após a confirmação do pagamento</li>
+      </ul>
+
+      <form class="contact-form checkout-form" id="signup-form" novalidate>
+        <fieldset>
+          <legend>Quem está contratando</legend>
+          <div class="person-switch" role="radiogroup" aria-label="Tipo de contratante">
+            <label><input type="radio" name="tipo_pessoa" value="PF" checked><span>Vou abrir uma empresa<small>Contrata com seu CPF</small></span></label>
+            <label><input type="radio" name="tipo_pessoa" value="PJ"><span>Já tenho CNPJ<small>Mudança ou abertura de filial</small></span></label>
+          </div>
+          <label>Nome completo do responsável <span>*</span><input type="text" name="nome" autocomplete="name" required minlength="3" maxlength="150"></label>
+          <div class="form-row">
+            <label><span id="doc-label">CPF</span> <span>*</span><input type="text" name="documento" id="documento" inputmode="numeric" required maxlength="18" placeholder="000.000.000-00"></label>
+            <label><span id="empresa-label">Nome pretendido da empresa <span class="optional">(opcional)</span></span><input type="text" name="razao_social_empresa" id="empresa" maxlength="200"></label>
+          </div>
+          <div class="form-row">
+            <label>E-mail <span>*</span><input type="email" name="email" autocomplete="email" required maxlength="150" placeholder="voce@empresa.com.br"></label>
+            <label>WhatsApp <span>*</span><input type="tel" name="whatsapp" autocomplete="tel" inputmode="tel" required placeholder="(73) 99999-9999"></label>
+          </div>
+          <p class="checkout-warning">Use o mesmo e-mail da sua conta no Mercado Pago. O contrato será enviado para ele.</p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Endereço do contratante</legend>
+          <div class="form-row">
+            <label>CEP <span>*</span><input type="text" name="cep" id="cep" inputmode="numeric" autocomplete="postal-code" required maxlength="9" placeholder="00000-000"></label>
+            <label>Cidade <span>*</span><input type="text" name="cidade" id="cidade" autocomplete="address-level2" required maxlength="80"></label>
+          </div>
+          <label>Logradouro <span>*</span><input type="text" name="logradouro" id="logradouro" autocomplete="address-line1" required maxlength="150"></label>
+          <div class="form-row-3">
+            <label>Bairro <span>*</span><input type="text" name="bairro" id="bairro" required maxlength="80"></label>
+            <label>Número <span>*</span><input type="text" name="numero" required maxlength="20"></label>
+            <label>UF <span>*</span><input type="text" name="uf" id="uf" required maxlength="2" autocomplete="address-level1"></label>
+          </div>
+          <label>Complemento <span class="optional">(opcional)</span><input type="text" name="complemento" maxlength="80"></label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Sobre a empresa</legend>
+          <label>Atividade principal da empresa <span>*</span><textarea name="atividade" rows="3" required maxlength="400" placeholder="Ex.: consultoria em gestão empresarial (CNAE 7020-4/00)"></textarea></label>
+          <p class="checkout-warning">O uso do endereço depende da viabilidade da atividade junto à Prefeitura de Porto Seguro. Se for negada, você pode cancelar sem custo e recebe de volta o que pagou pelo período sem uso.</p>
+        </fieldset>
+
+        <div class="hp" aria-hidden="true"><label>Site <input type="text" name="site_url" tabindex="-1" autocomplete="off"></label></div>
+
+        <label class="consent"><input type="checkbox" name="aceite" value="sim" required><span>Li e aceito o <a href="contrato.html" target="_blank" rel="noopener">contrato de prestação de serviços de intermediação para escritório virtual</a> e a <a href="privacidade.html" target="_blank" rel="noopener">política de privacidade</a>. Entendo que o aceite será registrado com data, hora e IP.</span></label>
+
+        <button type="submit" class="btn btn-primary form-submit" id="submit-btn">Continuar para o pagamento seguro <span aria-hidden="true">↗</span></button>
+        <p class="form-feedback" id="form-feedback" aria-live="polite"></p>
+        <div class="checkout-help" id="fallback" hidden>
+          <p><strong>Não conseguimos registrar seu cadastro agora.</strong> Você pode pagar pelo link do Mercado Pago abaixo usando <strong>o mesmo e-mail informado acima</strong>. Seu contrato será enviado após a conferência.</p>
+          <a class="btn btn-outline" id="fallback-link" href="#" rel="noopener noreferrer">Pagar pelo Mercado Pago ↗</a>
+        </div>
+      </form>
+
+      <p class="checkout-warning">O pagamento é processado pelo Mercado Pago. Os serviços contábeis da Ecoplan são opcionais e contratados à parte.</p>
+    </section>
+  </main>
+  <script src="pagamento-config.js"></script>
+  <script src="assinar.js"></script>
+</body>
+</html>
