@@ -48,9 +48,10 @@ button, input, select, textarea { font: inherit; }
 .brand { display: inline-flex; align-items: center; gap: 12px; color: #fff; min-width: 0; }
 .brand-icon {
   width: 46px; height: 46px; display: inline-grid; place-items: center; border-radius: 14px;
-  background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.16); color: #fefaf3; flex: 0 0 auto;
+  background: #fff; border: 1px solid rgba(255,255,255,0.16); color: #fefaf3; flex: 0 0 auto;
 }
 .brand-icon svg { width: 30px; height: 30px; }
+.brand-icon img { width: 34px; height: auto; display: block; }
 .brand-name { display: flex; flex-direction: column; font-family: 'Manrope', system-ui, sans-serif; font-size: 1.18rem; font-weight: 800; line-height: 1; letter-spacing: -0.02em; }
 .brand-name span { color: #8ee4ff; }
 .brand-name small { font-size: .68rem; letter-spacing: .16em; margin-top: 4px; font-weight: 700; opacity: .82; }
